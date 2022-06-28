@@ -35,6 +35,30 @@ public class MainActivity extends AppCompatActivity {
         ajustesVisorWeb.setJavaScriptEnabled(true);
         miVisorWeb.loadUrl(url);
 
+        Boton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                view.setClickable(true);
+                view.setOnClickListener(this);
+                notificacion.setSmallIcon(R.mipmap.ic_launcher);
+                notificacion.setTicker("Notificación Nueva");
+                notificacion.setPriority(Notification.PRIORITY_HIGH);
+                notificacion.setWhen(System.currentTimeMillis());
+                notificacion.setContentTitle("Titulo Prueba");
+                notificacion.setContentText("Este es un mensaje de prueba xd");
+
+                Intent intent = new Intent(MainActivity.this,MainActivity.class);
+
+                PendingIntent pendingIntent = PendingIntent.getActivity(MainActivity.this,0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+                notificacion.setContentIntent(pendingIntent);
+
+                NotificationManager nm = (NotificationManager)  getSystemService(NOTIFICATION_SERVICE);
+                nm.notify(idUnica,notificacion.build());
+
+
+            }
+        });
+
 
 
 
