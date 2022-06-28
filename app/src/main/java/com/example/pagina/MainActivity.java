@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     private WebView miVisorWeb;
     private Button Boton;
-    String url ="https://materialesaramburo.mx/web/login";
+    String url ="https://soporte.dandoteaconocer.mx/";
     NotificationCompat.Builder notificacion;
     private static final int idUnica = 1;
 
